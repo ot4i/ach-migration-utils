@@ -36,31 +36,31 @@ A small proportion of users of IBM Integration Bus Healthcare Pack 4.0.0.0 (or i
 Yes! After cloning this repository, locate the project interchange file named PI_IIBv10ExampleWithGenericHL7Nodes.zip 
 As its name suggests, this project interchange zip file contains some example message flows (located inside an Integration Project) which use the GenericHL7Input node and GenericHL7Output node. In this worked example we will use the code in this repo to locate and convert these message flow nodes into an HL7DFDLInput node and HL7DFDLOutput node. These instructions assume you have already installed App Connect Enterprise 12.0.3.0, App Connect for Healthcare 6.0.1.0 and linked the installations in the normal way using the ACH_CreateLink.bat script. 
 
-1. Launch your App Connect Enterprise 12.0.3.0 Toolkit associated with an existing workspace or create a new one such as "C:\workspace1", and use the File > Import menu option and in the resulting dialog, choose the Projct Interchange option from the IBM Integration folder. Hit Next and use the Browse button for the "From zip file" property, to select PI_IIBv10ExampleWithGenericHL7Nodes.zip
+1. Launch your App Connect Enterprise 12.0.3.0 Toolkit associated with an existing workspace or create a new one such as `C:\workspace1`, and use the File > Import menu option and in the resulting dialog, choose the Project Interchange option from the IBM Integration folder. Hit Next and use the Browse button for the `From zip file` property, to select `PI_IIBv10ExampleWithGenericHL7Nodes.zip`
 
 2. Select all three available projects:
 
-* PatternInstanceGeneratedWithIIBv100011 (this is the pattern instance project, which you may be interested in, but which is not needed to demonstrate the migration tool itself)
-* PatternInstanceGeneratedWithIIBv100011_HL7toHL7 (this is the main Integration Project, which holds the message flows)
-* PatternInstanceGeneratedWithIIBv100011_Hl7toHL7_Subflows (this is another Integration Project which holds some subflow dependencies of the main Integration project mentioned above)
+* `PatternInstanceGeneratedWithIIBv100011` (this is the pattern instance project, which you may be interested in, but which is not needed to demonstrate the migration tool itself)
+* `PatternInstanceGeneratedWithIIBv100011_HL7toHL7` (this is the main Integration Project, which holds the message flows)
+* `PatternInstanceGeneratedWithIIBv100011_Hl7toHL7_Subflows` (this is another Integration Project which holds some subflow dependencies of the main Integration project mentioned above)
 
-The projects will be imported. Once imported, PatternInstanceGeneratedWithIIBv100011_HL7toHL7 will show some Errors in the Problems view.
+The projects will be imported. Once imported, `PatternInstanceGeneratedWithIIBv100011_HL7toHL7` will show some Errors in the Problems view.
 
-Open PatternInstanceGeneratedWithIIBv100011Receiver.msgflow and it should look like this (note that the Toolkit shows errors for the GenericHL7Input):
-
-PICTURE HERE
-
-Open PatternInstanceGeneratedWithIIBv100011Sender.msgflow and it should look like this (note that the Toolkit shows errors for the GenericHL7Output):
+Open `PatternInstanceGeneratedWithIIBv100011Receiver.msgflow` and it should look like this (note that the Toolkit shows errors for the GenericHL7Input):
 
 PICTURE HERE
 
-3. Close the Toolkit and then launch a new, second App Connect Enterprise 12.0.3.0 Toolkit session using a different workspace, such as "C:\workspace2". This workspace will be used to hold the Java migration tool from this git repository. If you wish to use the same workspace as the previous step you can do so, but these instructions assume a second workspace so that we can close the Eclipse Toolkit with the first workspace, whilst running the migration tool against the message flow artifacts. This avoids any potential confusion over stale relationships / required refreshes between Eclipse and the filesystem as the messageflow is updated.  Import the Java Project named MigrateGenericHL7Nodes.
+Open `PatternInstanceGeneratedWithIIBv100011Sender.msgflow` and it should look like this (note that the Toolkit shows errors for the GenericHL7Output):
 
-4. Navigate into the project MigrateGenericHL7Nodes, expanding its subfolders to locate MigrateGenericHL7Nodes.java Right-click this java file and select Run As > Run Configurations. Select the Java application option and click the icon to create a New Launch Configuration. On the Arguments tab, add a single new Program Argument which is the folder on disk where the HL7toHL7 integration project was located such as C:\workspace1\PatternInstanceGeneratedWithIIBv100011_HL7toHL7 and then run the java by hitting the Run button.
+PICTURE HERE
+
+3. Close the Toolkit and then launch a new, second App Connect Enterprise 12.0.3.0 Toolkit session using a different workspace, such as `C:\workspace2`. This workspace will be used to hold the Java migration tool from this git repository. If you wish to use the same workspace as the previous step you can do so, but these instructions assume a second workspace so that we can close the Eclipse Toolkit with the first workspace, whilst running the migration tool against the message flow artifacts. This avoids any potential confusion over stale relationships / required refreshes between Eclipse and the filesystem as the messageflow is updated.  Import the Java Project named `MigrateGenericHL7Nodes`.
+
+4. Navigate into the project `MigrateGenericHL7Nodes`, expanding its subfolders to locate `MigrateGenericHL7Nodes.java` Right-click this java file and select Run As > Run Configurations. Select the Java application option and click the icon to create a New Launch Configuration. On the Arguments tab, add a single new Program Argument which is the folder on disk where the HL7toHL7 integration project was located such as `C:\workspace1\PatternInstanceGeneratedWithIIBv100011_HL7toHL7` and then run the java by hitting the Run button.
 
 5. The java program should run and write some messages to the Console view in Toolkit. The project in question has two message flows which should cause action to be taken:
-* PatternInstanceGeneratedWithIIBv100011Receiver.msgflow contains one instance of a GenericHL7Input node
-* PatternInstanceGeneratedWithIIBv100011Sender.msgflow contains one instance of a GenericHL7Output node
+* `PatternInstanceGeneratedWithIIBv100011Receiver.msgflow` contains one instance of a GenericHL7Input node
+* `PatternInstanceGeneratedWithIIBv100011Sender.msgflow` contains one instance of a GenericHL7Output node
 The console output should look like this:
 
 6. If you were to run the program a second time (and so the updates have already been made) you would see console output like this:
@@ -78,12 +78,12 @@ We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow Sub
 Terminating - my work here is done!
 ```
 
-7. Having run the tool, launch your App Connect Enterprise 12.0.3.0 Toolkit with "C:\workspace1", and open up the two message flows which have been migrated. 
+7. Having run the tool, launch your App Connect Enterprise 12.0.3.0 Toolkit with `C:\workspace1`, and open up the two message flows which have been migrated. 
 
-PatternInstanceGeneratedWithIIBv100011Receiver.msgflow should look like this:
+`PatternInstanceGeneratedWithIIBv100011Receiver.msgflow` should look like this:
 
 
-PatternInstanceGeneratedWithIIBv100011Dest1Sender.msgflow should look like this:
+`PatternInstanceGeneratedWithIIBv100011Dest1Sender.msgflow` should look like this:
 
 
 ## License
