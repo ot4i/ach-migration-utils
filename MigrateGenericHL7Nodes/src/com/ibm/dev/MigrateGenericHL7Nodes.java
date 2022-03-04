@@ -67,6 +67,7 @@ public class MigrateGenericHL7Nodes {
 		
 		File[] files = dir.listFiles();
 		for (File file : files) {
+			//System.out.println("In loop and file is "+file.getAbsolutePath());
 			if (file.isDirectory()) {
 				//Descend deeper as .msgflows may be in subdirectories of the project
 				analyseDirectoryContents(file, projectDirectoryAbsolutePath);
@@ -260,22 +261,38 @@ public class MigrateGenericHL7Nodes {
 			// NEEDS TO BE CHANGED TO ...
 			// xmlns:hl7dfdlin_HL7DFDLInput.subflow="hl7dfdlin/HL7DFDLInput.subflow"
 			
-			NodeList rootTag = doc.getElementsByTagNameNS("http://eclipse.org.emf/2002/ECore", "EPackage");
+			NodeList rootTag = doc.getElementsByTagNameNS("*", "EPackage");
 			org.w3c.dom.Node root = rootTag.item(0);
-			Element rootElement = (Element) root;
-			if (inputNodeWasUpdated) {
-				if (!rootElement.hasAttribute("xmlns:hl7dfdlin_HL7DFDLInput.subflow")) {
-					// Add the new namespace prefix declaration if it is not already there
-					rootElement.setAttribute("xmlns:hl7dfdlin_HL7DFDLInput.subflow",  "hl7dfdlin/HL7DFDLInput.subflow");
+			Element rootElement = (Element) root;			
+			if (inputNodeWasUpdated) {				
+				// The input node was updated so now we need to change the attribute at the top of the flow xml
+				if (rootElement.hasAttributeNS("http://www.w3.org/2000/xmlns/","hl7dfdlin_HL7DFDLInput.subflow")) {					
+					// The attribute has already been added, so don't need to add it again.
+					// This could protect us in future hypothetical circumstances where code changes cause inputNodeWasUpdated to be true
+					// but where this migrate code has already been run against this flow already, and hence the new attribute already been added!
+				} else {
+					// Add the new attribute
+					rootElement.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:hl7dfdlin_HL7DFDLInput.subflow",  "hl7dfdlin/HL7DFDLInput.subflow");
+					if (rootElement.hasAttributeNS("http://www.w3.org/2000/xmlns/","hl7in_HL7Input.msgflow") ) {
+						// If the new attribute added then we should always come in here and delete the old attribute too!
+						rootElement.removeAttributeNS("http://www.w3.org/2000/xmlns/","hl7in_HL7Input.msgflow");
+					}
 				}
-				rootElement.removeAttribute("xmlns:hl7in_HL7Input.msgflow");			
 			}
 			if (outputNodeWasUpdated) {
-				if (!rootElement.hasAttribute("xmlns:hl7dfdlout_HL7DFDLOutput.subflow")) {
-					// Add the new namespace prefix declaration if it is not already there
-					rootElement.setAttribute("xmlns:hl7dfdlout_HL7DFDLOutput.subflow",  "hl7dfdlout/HL7DFDLOutput.subflow");
-				}
-				rootElement.removeAttribute("xmlns:hl7out_HL7Output.msgflow");			
+				// The output node was updated so now we need to change the attribute at the top of the flow xml
+				if (rootElement.hasAttributeNS("http://www.w3.org/2000/xmlns/","hl7dfdlout_HL7DFDLOutput.subflow")) {					
+					// The attribute has already been added, so we don't need to add it again.
+					// This could protect us in future hypothetical circumstances where code changes cause outputNodeWasUpdated to be true
+					// but where this migrate code has already been run against this flow already, and hence the new attribute already been added!
+				} else {
+					// Add the new attribute
+					rootElement.setAttributeNS("http://www.w3.org/2000/xmlns/","xmlns:hl7dfdlout_HL7DFDLOutput.subflow",  "hl7dfdlout/HL7DFDLOutput.subflow");
+					if (rootElement.hasAttributeNS("http://www.w3.org/2000/xmlns/","hl7out_HL7Output.msgflow") ) {
+						// If the new attribute is added then we should always come in here and delete the old attribute too!
+						rootElement.removeAttributeNS("http://www.w3.org/2000/xmlns/","hl7out_HL7Output.msgflow");
+					}
+				}			
 			}
 			System.out.println("==> Flow Report Flow Details BEFORE Migrating ...");
 			FlowReport(msgflowFile);
