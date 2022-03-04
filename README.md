@@ -48,7 +48,7 @@ The projects will be imported. Once imported, `PatternInstanceGeneratedWithIIBv1
 
 Open `PatternInstanceGeneratedWithIIBv100011Receiver.msgflow` and it should look like this (note that the Toolkit shows errors for the GenericHL7Input):
 
-PICTURE HERE
+![alt text](https://github.com/ot4i/ach-migration-utils/blob/main/ExampleMessageFlowContainingGenericHL7Input.png?raw=true)
 
 Open `PatternInstanceGeneratedWithIIBv100011Sender.msgflow` and it should look like this (note that the Toolkit shows errors for the GenericHL7Output):
 
