@@ -65,6 +65,7 @@ The console output should look like this:
 
 6. If you were to run the program a second time (and so the updates have already been made) you would see console output like this:
 
+```
 Aiming to seek message flows inside the following directory (and its descendant subdirectories): C:\workspace1\PatternInstanceGeneratedWithIIBv100011_HL7toHL7
 We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow Dest1Filter.msgflow does not need updating!
 We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow PatternInstanceGeneratedWithIIBv100011Receiver.msgflow does not need updating!
@@ -75,6 +76,7 @@ We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow Sub
 We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow PatternInstanceGeneratedWithIIBv100011Dest1Sender.msgflow does not need updating!
 We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow SubSenderExceptionHandler.msgflow does not need updating!
 Terminating - my work here is done!
+```
 
 7. Having run the tool, launch your App Connect Enterprise 12.0.3.0 Toolkit with "C:\workspace1", and open up the two message flows which have been migrated. 
 
