@@ -48,11 +48,11 @@ The projects will be imported. Once imported, `PatternInstanceGeneratedWithIIBv1
 
 Open `PatternInstanceGeneratedWithIIBv100011Receiver.msgflow` and it should look like this (note that the Toolkit shows errors for the GenericHL7Input):
 
-![alt text](https://github.com/ot4i/ach-migration-utils/blob/main/ExampleMessageFlowContainingGenericHL7Input.png?raw=true)
+![alt text](https://github.com/ot4i/ach-migration-utils/blob/main/V12_ExampleMessageFlowContainingGenericHL7Input.png?raw=true)
 
 Open `PatternInstanceGeneratedWithIIBv100011Sender.msgflow` and it should look like this (note that the Toolkit shows errors for the GenericHL7Output):
 
-PICTURE HERE
+![alt text](https://github.com/ot4i/ach-migration-utils/blob/main/V12_ExampleMessageFlowContainingGenericHL7Output.png?raw=true)
 
 3. Close the Toolkit and then launch a new, second App Connect Enterprise 12.0.3.0 Toolkit session using a different workspace, such as `C:\workspace2`. This workspace will be used to hold the Java migration tool from this git repository. If you wish to use the same workspace as the previous step you can do so, but these instructions assume a second workspace so that we can close the Eclipse Toolkit with the first workspace, whilst running the migration tool against the message flow artifacts. This avoids any potential confusion over stale relationships / required refreshes between Eclipse and the filesystem as the messageflow is updated.  Import the Java Project named `MigrateGenericHL7Nodes`.
 
