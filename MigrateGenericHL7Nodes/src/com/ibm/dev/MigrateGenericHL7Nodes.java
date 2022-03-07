@@ -294,13 +294,13 @@ public class MigrateGenericHL7Nodes {
 					}
 				}			
 			}
-			System.out.println("==> Flow Report Flow Details BEFORE Migrating ...");
-			FlowReport(msgflowFile);
+			//System.out.println("==> Flow Report Flow Details BEFORE Migrating ...");
+			//FlowReport(msgflowFile);
 			System.out.println("Writing the migrated flow to "+msgflowFile.getAbsoluteFile());
 			Transformer transformer = TransformerFactory.newInstance().newTransformer();
 			transformer.transform(new DOMSource(doc),  new StreamResult(msgflowFile));
-			System.out.println("==> Flow Report Flow Details AFTER Migrating ...");
-			FlowReport(msgflowFile);
+			//System.out.println("==> Flow Report Flow Details AFTER Migrating ...");
+			//FlowReport(msgflowFile);
 		} else {
 			System.out.println("We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow "+msgflowFile.getName()+" does not need updating!");
 		}
