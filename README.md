@@ -78,10 +78,10 @@ We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow Sub
 Terminating - my work here is done!
 ```
 
-7. Having run the tool, launch your App Connect Enterprise 12.0.3.0 Toolkit with `C:\workspace1`. *IMPORTANT: Because you have not dragged and dropped one of the new healthcare nodes in to a flow, the Toolkit won't automatically have linked the project to the healthcare node definitions which are nowadays subflow user-defined nodes. To fix this, right click the project, select `Manage Library References` and tick the box next to the Static Library named `HL7GenericDFDLNodes` and click OK.* You can now open up the two message flows which have been migrated. 
+7. Having run the tool, launch your App Connect Enterprise 12.0.3.0 Toolkit with `C:\workspace1`. **IMPORTANT: Because you have not dragged and dropped one of the new healthcare nodes in to a flow, the Toolkit won't automatically have linked the project to the healthcare node definitions which are nowadays subflow user-defined nodes. To fix this, right click the project, select `Manage Library References` and tick the box next to the Static Library named `HL7GenericDFDLNodes` and click OK.** You can now open up the two message flows which have been migrated. 
 
 `PatternInstanceGeneratedWithIIBv100011Receiver.msgflow` should look like this:
-![alt text](https://github.com/ot4i/ach-migration-utils/blob/main/V12Migrated_ExampleMessageFlowContainingGenericHL7Output.png?raw=true)
+![alt text](https://github.com/ot4i/ach-migration-utils/blob/main/V12Migrated_ExampleMessageFlowContainingGenericHL7Input.png?raw=true)
 
 `PatternInstanceGeneratedWithIIBv100011Dest1Sender.msgflow` should look like this:
 ![alt text](https://github.com/ot4i/ach-migration-utils/blob/main/V12Migrated_ExampleMessageFlowContainingGenericHL7Output.png?raw=true)
