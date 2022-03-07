@@ -71,7 +71,8 @@ We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow Pat
 We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow SubJournal.msgflow does not need updating!
 We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow SubReceiverExceptionHandler.msgflow does not need updating!
 We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow SubTransformAndRouteExceptionHandler.msgflow does not need updating!
-Writing the migrated flow to C:\workspace2\PatternInstanceGeneratedWithIIBv100011_HL7toHL7\senders\PatternInstanceGeneratedWithIIBv100011Dest1Sender.msgflow
+
+**Writing the migrated flow to C:\workspace2\PatternInstanceGeneratedWithIIBv100011_HL7toHL7\senders\PatternInstanceGeneratedWithIIBv100011Dest1Sender.msgflow**
 We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow SubSenderExceptionHandler.msgflow does not need updating!
 We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow Dest1Customise.msgflow does not need updating!
 We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow SubCustomise.msgflow does not need updating!
