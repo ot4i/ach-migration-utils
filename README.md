@@ -61,12 +61,27 @@ Open `PatternInstanceGeneratedWithIIBv100011Sender.msgflow` and it should look l
 5. The java program should run and write some messages to the Console view in Toolkit. The project in question has two message flows which should cause action to be taken:
 * `PatternInstanceGeneratedWithIIBv100011Receiver.msgflow` contains one instance of a GenericHL7Input node
 * `PatternInstanceGeneratedWithIIBv100011Sender.msgflow` contains one instance of a GenericHL7Output node
+
 The console output should look like this:
+```
+Aiming to seek message flows inside the following directory (and its descendant subdirectories): C:\workspace2
+We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow Dest1Filter.msgflow does not need updating!
+Writing the migrated flow to C:\workspace2\PatternInstanceGeneratedWithIIBv100011_HL7toHL7\healthcare\PatternInstanceGeneratedWithIIBv100011Receiver.msgflow
+We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow PatternInstanceGeneratedWithIIBv100011TransformAndRoute1.msgflow does not need updating!
+We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow SubJournal.msgflow does not need updating!
+We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow SubReceiverExceptionHandler.msgflow does not need updating!
+We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow SubTransformAndRouteExceptionHandler.msgflow does not need updating!
+Writing the migrated flow to C:\workspace2\PatternInstanceGeneratedWithIIBv100011_HL7toHL7\senders\PatternInstanceGeneratedWithIIBv100011Dest1Sender.msgflow
+We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow SubSenderExceptionHandler.msgflow does not need updating!
+We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow Dest1Customise.msgflow does not need updating!
+We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow SubCustomise.msgflow does not need updating!
+Terminating - my work here is done!
+```
 
 6. If you were to run the program a second time (and so the updates have already been made) you would see console output like this:
 
 ```
-Aiming to seek message flows inside the following directory (and its descendant subdirectories): C:\workspace1\PatternInstanceGeneratedWithIIBv100011_HL7toHL7
+Aiming to seek message flows inside the following directory (and its descendant subdirectories): C:\workspace2
 We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow Dest1Filter.msgflow does not need updating!
 We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow PatternInstanceGeneratedWithIIBv100011Receiver.msgflow does not need updating!
 We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow PatternInstanceGeneratedWithIIBv100011TransformAndRoute1.msgflow does not need updating!
