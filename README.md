@@ -48,11 +48,11 @@ The projects will be imported. Once imported, `PatternInstanceGeneratedWithIIBv1
 
 Open `PatternInstanceGeneratedWithIIBv100011Receiver.msgflow` and it should look like this (note that the Toolkit shows errors for the GenericHL7Input):
 
-PICTURE HERE
+![alt text](https://github.com/ot4i/ach-migration-utils/blob/main/V12_ExampleMessageFlowContainingGenericHL7Input.png?raw=true)
 
 Open `PatternInstanceGeneratedWithIIBv100011Sender.msgflow` and it should look like this (note that the Toolkit shows errors for the GenericHL7Output):
 
-PICTURE HERE
+![alt text](https://github.com/ot4i/ach-migration-utils/blob/main/V12_ExampleMessageFlowContainingGenericHL7Output.png?raw=true)
 
 3. Close the Toolkit and then launch a new, second App Connect Enterprise 12.0.3.0 Toolkit session using a different workspace, such as `C:\workspace2`. This workspace will be used to hold the Java migration tool from this git repository. If you wish to use the same workspace as the previous step you can do so, but these instructions assume a second workspace so that we can close the Eclipse Toolkit with the first workspace, whilst running the migration tool against the message flow artifacts. This avoids any potential confusion over stale relationships / required refreshes between Eclipse and the filesystem as the messageflow is updated.  Import the Java Project named `MigrateGenericHL7Nodes`.
 
@@ -78,12 +78,13 @@ We didn't find any GenericHL7Input or GenericHL7Output nodes so message flow Sub
 Terminating - my work here is done!
 ```
 
-7. Having run the tool, launch your App Connect Enterprise 12.0.3.0 Toolkit with `C:\workspace1`, and open up the two message flows which have been migrated. 
+7. Having run the tool, launch your App Connect Enterprise 12.0.3.0 Toolkit with `C:\workspace1`. *IMPORTANT: Because you have not dragged and dropped one of the new healthcare nodes in to a flow, the Toolkit won't automatically have linked the project to the healthcare node definitions which are nowadays subflow user-defined nodes. To fix this, right click the project, select `Manage Library References` and tick the box next to the Static Library named `HL7GenericDFDLNodes` and click OK.* You can now open up the two message flows which have been migrated. 
 
 `PatternInstanceGeneratedWithIIBv100011Receiver.msgflow` should look like this:
-
+![alt text](https://github.com/ot4i/ach-migration-utils/blob/main/V12Migrated_ExampleMessageFlowContainingGenericHL7Output.png?raw=true)
 
 `PatternInstanceGeneratedWithIIBv100011Dest1Sender.msgflow` should look like this:
+![alt text](https://github.com/ot4i/ach-migration-utils/blob/main/V12Migrated_ExampleMessageFlowContainingGenericHL7Output.png?raw=true)
 
 
 ## License
